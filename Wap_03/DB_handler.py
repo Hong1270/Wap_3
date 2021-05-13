@@ -31,17 +31,14 @@ class DBModule:
         data = self.db.child('user_info').get().val()
         for i in data:
             if i == _id_:
-                print(i)
                 return True
     
     def login(self,_id_,pw):
         use = self.db.child('user_info').child(_id_).get().val()
-        print(use)
         if use !=None:
             user = use['password']
             try:
                 if user == pw:
-                    print(user)
                     return True
                 else:
                     return False
